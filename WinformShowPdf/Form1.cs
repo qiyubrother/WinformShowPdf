@@ -16,5 +16,18 @@ namespace WinformShowPdf
         {
             InitializeComponent();
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            btnOpen.Click += (o, ex) =>
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    webBrowser1.Navigate(openFileDialog1.FileName);
+                }
+            };
+        }
     }
 }
